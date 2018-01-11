@@ -2,7 +2,7 @@
  * @Author: Tyreke.Xu 
  * @Date: 2018-01-11 11:35:28 
  * @Last Modified by: Tyreke.Xu
- * @Last Modified time: 2018-01-11 15:55:40
+ * @Last Modified time: 2018-01-11 17:32:19
  * @Use 项目功能的入口
  */
 const Koa = require('koa');
@@ -14,12 +14,12 @@ const onerror = require('koa-onerror');
 const bodyparser = require('koa-bodyparser');
 const logger = require('koa-logger');
 const session = require('koa-session');
-const db = require('./src/models/db');
+const db = require('./rest/models/db');
 const koaBody = require('koa-body');
 const koaStatic = require('koa-static');
 const views = require('koa-views');
 
-const {backendRouter, frontendRouter} = require('./src/routes/index');
+const {backendRouter, frontendRouter} = require('./rest/routes/index');
 onerror(app);
 
 //cookies
@@ -64,8 +64,8 @@ const about = ctx => {
 router.get('/', main);
 router.get('/about', about);
 
-app.use(require('./src/middlewares/response'));
-app.use(require('./src/middlewares/filter'));
+app.use(require('./rest/middlewares/response'));
+app.use(require('./rest/middlewares/filter'));
 app
 	.use(router.routes())
 	.use(router.allowedMethods);
