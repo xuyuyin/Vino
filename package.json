@@ -1,0 +1,50 @@
+{
+  "name": "txblog-server",
+  "version": "1.0.0",
+  "description": "the backend of Tyreke Xu's blog",
+  "main": "app.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development ./node_modules/.bin/nodemon bin/run",
+    "start": "cross-env NODE_ENV=production node bin/run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xuyuyin/txBlog-server.git"
+  },
+  "keywords": [
+    "node",
+    "koa",
+    "mongodb"
+  ],
+  "author": "Tyreke Xu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xuyuyin/txBlog-server/issues"
+  },
+  "homepage": "https://github.com/xuyuyin/txBlog-server#readme",
+  "dependencies": {
+    "cross-env": "^5.1.3",
+    "crypto": "^1.0.1",
+    "debug": "^3.1.0",
+    "ejs": "^2.5.7",
+    "koa": "^2.4.1",
+    "koa-body": "^2.5.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-convert": "^1.2.0",
+    "koa-json": "^2.0.2",
+    "koa-logger": "^3.1.0",
+    "koa-onerror": "^4.0.0",
+    "koa-router": "^7.3.0",
+    "koa-session": "^5.7.0",
+    "koa-static": "^4.0.2",
+    "koa-views": "^6.1.3",
+    "md5": "^2.2.1",
+    "moment": "^2.20.1",
+    "mongoose": "^4.13.9",
+    "runkoa": "^1.5.9",
+    "tracer": "^0.8.11"
+  },
+  "devDependencies": {
+    "nodemon": "^1.14.10"
+  }
+}
