@@ -2,7 +2,7 @@
  * @Author: Tyreke.Xu 
  * @Date: 2018-01-11 11:35:28 
  * @Last Modified by: Tyreke.Xu
- * @Last Modified time: 2018-01-11 17:32:19
+ * @Last Modified time: 2018-01-12 15:01:50
  * @Use 项目功能的入口
  */
 const Koa = require('koa');
@@ -19,7 +19,8 @@ const koaBody = require('koa-body');
 const koaStatic = require('koa-static');
 const views = require('koa-views');
 
-const {backendRouter, frontendRouter} = require('./rest/routes/index');
+// const {backendRouter, frontendRouter} = require('./rest/routes/index');
+const backendRouter = require('./rest/routes/index');
 onerror(app);
 
 //cookies
@@ -50,25 +51,11 @@ app.use(views(__dirname + '/views', {
 	extension: 'ejs'
 }));
 
-const main = ctx => {
-	if (ctx.path === '/favicon.ico') return;
-	let n = ctx.session.views || 0;
-	ctx.session.views = ++n;
-	ctx.body = n + 'views';
-}
-
-const about = ctx => {
-	ctx.response.type = 'json';
-	ctx.response.body = {data: 'about'}
-}
-router.get('/', main);
-router.get('/about', about);
-
 app.use(require('./rest/middlewares/response'));
 app.use(require('./rest/middlewares/filter'));
 app
-	.use(router.routes())
-	.use(router.allowedMethods);
+	.use(backendRouter.routes())
+	.use(backendRouter.allowedMethods());
 
 app.on('error', function(err,ctx) {
 	console.log(err);
