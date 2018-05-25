@@ -1,0 +1,56 @@
+<%- include('../layout/header.ejs') %>
+<div class="container">
+	<table border="1" cellpadding='0' cellspacing='0' width='900px'style='text-align: center'>
+		<tr>
+			<th>标签</th>
+			<th>标签描述</th>
+			<th>修改时间</th>
+			<th>创建时间</th>
+			<th>操作</th>
+		</tr>
+		<% cats.forEach(function(cat) { %>
+			<tr>
+				<td><%= cat.cate_name %></td>
+				<td><%= cat.cate_info %></td>
+				<td><%= new Date(parseInt(cat.updatedAt)).getFullYear() + "-" + parseInt(new Date(parseInt(cat.updatedAt)).getMonth() + 1) + "-" + new Date(parseInt(cat.updatedAt)).getDate() + " " + new Date(parseInt(cat.updatedAt)).getHours() + ":" + new Date(parseInt(cat.updatedAt)).getMinutes() + ":" +
+					new Date(parseInt(cat.updatedAt)).getSeconds() %></td>
+				<td><%= new Date(parseInt(cat.createdAt)).getFullYear() + "-" + parseInt(new Date(parseInt(cat.createdAt)).getMonth() + 1) + "-" + new Date(parseInt(cat.createdAt)).getDate() + " " + new Date(parseInt(cat.createdAt)).getHours() + ":" + new Date(parseInt(cat.createdAt)).getMinutes() + ":" +
+					new Date(parseInt(cat.createdAt)).getSeconds() %></td>
+				<td>
+					<a href="/admin/category/del?id=<%= cat._id %>"><button class="btn-small btn-red">删除</button></a>
+					<button class="btn-small btn-green editBtn" data-id="<%= cat._id %>">修改</button>
+				</td>
+			</tr>
+		<% }) %>
+	</table>
+	<button class="addBtn">添加</button>
+	<form action="/admin/category/add" method="POST" class="hide">
+		<label for="name">
+			标签名： <input type="text" name="cate_name" id="name">
+		</label>
+		<label for="info">
+			标签描述: <input type="text" name="cate_info" id="info">
+		</label>
+		<label><input type="text" name="_id" id="_id" class="hide"></label>
+		<button type="submit" formtarget="_self" class="confirmBtn">确认</button>
+	</form>
+</div>
+<%- include('../layout/footer.ejs') %>
+
+<script>
+	$('.addBtn').on('click', function() {
+		$('form').removeClass('hide');
+		$('form').attr('action', '/admin/category/add');
+	})
+	$('.editBtn').on('click', function() {
+		var id = $(this).attr('data-id');
+		console.log(id);
+		var nameStr = $($(this).parents().siblings('td')[0]).html();
+		var infoStr = $($(this).parents().siblings('td')[1]).html();
+		$('form').removeClass('hide');
+		$('form').attr('action', '/admin/category/edit');
+		$('#name').val(nameStr);
+		$('#info').val(infoStr);
+		$('#_id').val(id);
+	})
+</script>

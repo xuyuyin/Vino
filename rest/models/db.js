@@ -2,10 +2,11 @@
  * @Author: Tyreke.Xu 
  * @Date: 2018-01-11 13:52:38 
  * @Last Modified by: Tyreke.Xu
- * @Last Modified time: 2018-01-11 14:00:47
+ * @Last Modified time: 2018-01-18 17:00:41
  * @Use 数据库连接
  */
 const mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
 const config = require('../../config/common');
 const dbConfig = config[process.env.NODE_ENV || 'development'];
 

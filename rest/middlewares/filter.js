@@ -2,7 +2,7 @@
  * @Author: Tyreke.Xu 
  * @Date: 2018-01-11 15:40:19 
  * @Last Modified by: Tyreke.Xu
- * @Last Modified time: 2018-01-11 15:53:38
+ * @Last Modified time: 2018-01-17 17:11:01
  * @Use 统一try catch 处理中间件
  * @tracer用于捕获内部错误，输出日志信息 https://www.npmjs.com/package/tracer
  */
@@ -17,7 +17,7 @@ const logger = tracer.colorConsole({
 
 module.exports = async (ctx, next) => {
 	try {
-		await next();
+		return await next();
 	} catch (err) {
 		if (!err) {
 			return ctx.error({msg: new Error('未知错误！')});

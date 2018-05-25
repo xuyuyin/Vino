@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title><%= title %></title>
+	<link rel="stylesheet" href="/styles/common.css">
+	<link rel="stylesheet" href="/styles/style.css">
+	<script charset="utf-8" src="/ueditor/ueditor.config.js"></script>
+	<script charset="utf-8" src="/ueditor/ueditor.all.min.js"></script>
+	<script src="/js/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+	<div class="mainWrap">
+		<div class="nav-box">
+			<div class="nav-left">
+				<%= title %>
+			</div>
+			<div class="nav-content">
+				<a href="/admin/article">文章管理</a>
+				<a href="/admin/category">分类管理</a>
+				<a href="/admin/user">用户管理</a>
+			</div>
+			<div class="nav-right">
+				<a href="javascript:;">
+					<%= user.name %>
+				</a>
+				<a href="/admin/signout">退出</a>
+			</div>
+		</div>
+

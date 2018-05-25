@@ -1,6 +1,282 @@
-.index-form {
+html,
+body,
+ul,
+p {
+	padding: 0px;
+	margin: 0px;
+}
+
+html {
+	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	width: 100%;
+	height: 100%;
+	background-image: linear-gradient(#2196F3 50%, #fff 0);
+	background-size: 100% 120px;
+	background-repeat: no-repeat;
+}
+
+a {
+	text-decoration: none;
+	color: #00B7FF;
+}
+
+li {
+	list-style: none;
+}
+
+.nav-box {
+	width: 100%;
+	height: 60px;
+	background: #2196F3;
+	position: relative;
+}
+
+.nav-box .nav-left {
+	float: left;
+	width: 200px;
+	height: 100%;
+	text-align: center;
+	line-height: 60px;
+	color: #fff;
+	font-size: 18px;
+}
+
+.nav-box .nav-left span {
+	color: #f66;
+}
+
+.nav-box .nav-content a {
+	width: 90px;
+	float: left;
+	color: #fff;
+	text-align: center;
+	line-height: 60px;
+}
+
+.nav-box .nav-right {
+	float: right;
+	height: 100%;
+	padding-right: 20px;
+}
+
+.nav-box .nav-right a {
+	float: left;
+	line-height: 60px;
+	color: #fff;
+	padding: 0px 20px;
+}
+
+/*
+* 内容区
+*/
+
+.container {
+	float: left;
+	width: calc(100% - 200px);
+	padding: 30px;
+	margin-bottom: 100px;
+	box-sizing: border-box;
+}
+
+.container .article {
+	width: 100%;
+	height: 100%;
+	border-bottom: 1px solid #666;
+	margin-top: 20px;
+}
+
+.article .title {
+	width: 100%;
+	height: 33px;
+	line-height: 30px;
+	font-size: 22px;
+}
+
+.article .content {
+	width: 100%;
+	margin: 10px 0;
+	max-height: 75px;
+	line-height: 25px;
+	font-size: 18px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.info {
+	width: 100%;
+	height: 22px;
+	margin-bottom: 10px;
+	padding-left: 2em;
+	box-sizing: border-box;
+}
+
+.article button {
+	float: right;
+	margin-right: 20px;
+}
+
+.article .date, .article .commentIcon, .article .category {
+	float: left;
+	height: 22px;
+	line-height: 22px;
+	font-size: 16px;
+	color: #666;
+	margin-right: 20px;
+}
+
+.comments {
+	width: 100%;
+}
+
+.comment {
+	width: 900px;
+	height: 100%;
+	border: 1px solid #666;
+	border-radius: 10px;
+	margin: 0 auto 10px;
+	box-sizing: border-box;
+	padding: 5px 10px;
+}
+
+.comment .ctt {
+	text-indent: 2em;
+}
+
+.comment .user {
+	text-align: right;
+	box-sizing: border-box;
+	padding-right: 30px;
+	margin-bottom: 5px;
+}
+
+.comment .reply {
+	width: calc(100% - 50px);
+	height: 100%;
+	border: 1px solid #666;
+	border-radius: 8px;
+	padding: 5px 10px;
+	box-sizing: border-box;
+	margin: 0 auto;
+}
+
+.footer {
+	width: 100%;
+	position: fixed;
+	left: 0px;
+	bottom: 0px;
+	z-index: 99;
+	text-align: center;
+}
+
+.footer .main {
+	width: 100%;
+	padding: 20px;
+	font-size: 14px;
+	color: #777;
+}
+
+.footer .main a {
+	color: #5BC98A;
+}
+
+
+/* 登录页 */
+
+.mini-box {
+	width: 100%;
+	height: 100%;
+}
+
+.mini-box .signform {
+	width: 280px;
+	height: auto;
+	min-height: 300px;
+	margin: 100px auto;
+}
+
+.mini-box .signform .list {
+	width: 100%;
+	position: relative;
+	margin: 20px 0px;
+}
+
+.mini-box .signform .list label {
+	width: 100%;
+	font-size: 13px;
+	color: #666;
 	display: block;
-	width: 800px;
-	height: 600px;
-	margin: 30px auto;
+	margin: 10px auto;
+}
+
+.mini-box .signform .list input {
+	width: 100%;
+	height: 35px;
+	font-size: 15px;
+	color: #000;
+	border: 0;
+	outline: none;
+	border-bottom: 1px solid #999;
+	box-sizing: border-box;
+	padding: 0 15px;
+}
+
+.mini-box .signform .sign-title {
+	width: 100%;
+	line-height: 30px;
+	text-align: center;
+	font-size: 18px;
+	color: #333;
+}
+
+.mini-box .signform .sign-title span {
+	color: #5BC98A;
+}
+
+.mini-box .signform .sign-redirct {
+	width: 100%;
+	text-align: center;
+	color: #999;
+}
+
+.mini-box .signform .sign-redirct .sign-tip {
+	width: 90%;
+	margin: 20px auto;
+	text-align: center;
+}
+
+.focus {
+	border-bottom: 2px solid #5BC98A!important;
+}
+
+.sign-btn {
+	width: 100%;
+	height: 40px;
+	border: 0;
+	color: #fff;
+	font-size: 16px;
+	cursor: pointer;
+	outline: none;
+	border-radius: 4px;
+	margin: 0px auto;
+	background: #5BC98A;
+}
+
+.sign-btn:hover {
+	box-shadow: 1px 8px 8px -6px #000000;
+}
+
+
+.addBtn, .confirmBtn {
+	width: 80px;
+	height: 30px;
+	line-height: 30px;
+	margin-top: 40px;
+	background-color: #2196F3;
+	text-align: center;
+	color: #fff;
+	border: none;
+}
+
+.confirmBtn {
+	background-color: #64854C;
 }

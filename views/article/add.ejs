@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+	<title><%= title %></title>
+	<link rel="stylesheet" href="/styles/common.css">
+	<link rel="stylesheet" href="/styles/style.css">
+	<script charset="utf-8" src="/ueditor/ueditor.config.js"></script>
+	<script charset="utf-8" src="/ueditor/ueditor.all.min.js"></script>
+	<script charset="utf-8" src="/ueditor/lang/zh-cn/zh-cn.js"></script>
+</head>
+<body>
+	<%- include('../layout/header.ejs') %>
+	
+	<div class="container">
+		<form action="/admin/article/add" method="post">
+			类别：
+			<!-- <input type="text" name="category" class="form-control" required="required"> -->
+			<select name="category">
+				<% for(var i = 0; i < category.length; i++) { %>
+					<option value="<%= category[i]._id %>"><%= category[i].cate_name %></option>
+				<% } %>
+			</select>
+			<br>
+			<br>	
+			标题：<input type="text" name="title" class="form-control" required="required">
+			<br>
+			<br>
+			封面：<input type="file" name="cover" required>
+			<br>
+			<br>
+			<div>
+				正文：
+				<br>
+				<textarea id="editor" name="content" style="width:800px;height:500px;"></textarea>
+			</div>
+			<button class="btn" type="submit">添加</button>
+		</form>
+	</div>
+	<%- include('../layout/footer.ejs') %>
+	<script>
+		var ue = UE.getEditor('editor');
+	</script>
+</body>
+</html>

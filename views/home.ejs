@@ -1,0 +1,23 @@
+<%- include('./layout/header.ejs') %>
+<div class="container">
+	<a href="/admin/article/add">
+		<button class="btn">添加文章</button>
+	</a>
+	<% if (docs.length) {%>
+		<% docs.forEach(function(doc){ %>
+			<div class="article">
+				<div class="title"><%= doc.title %></div>
+				<div class="content"><%- doc.content %></div>
+				<div class="info">
+					<div class="date"><%= new Date(parseInt(doc.updatedAt)).getFullYear() + "-" + parseInt(new Date(parseInt(doc.updatedAt)).getMonth() + 1) + "-" + new Date(parseInt(doc.updatedAt)).getDate() + " " + new Date(parseInt(doc.updatedAt)).getHours() + ":" + new Date(parseInt(doc.updatedAt)).getMinutes() + ":" +
+						new Date(parseInt(doc.updatedAt)).getSeconds() %></div>
+					<div class="commentIcon">评论（<%= doc.comments.length %>）</div>
+					<div class="category"><%= doc.category.cate_name %></div>
+					<a href="/admin/article/del?id=<%= doc._id %>"><button class="btn-small btn-red">删除</button></a>
+					<a href="/admin/article/edit?id=<%= doc._id%>"><button class="btn-small btn-green">修改</button></a>
+				</div>
+			</div>
+		<% }) %>
+	<% } %>
+</div>
+<%- include('./layout/footer.ejs') %>
